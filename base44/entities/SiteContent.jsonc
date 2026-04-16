@@ -1,0 +1,25 @@
+{
+  "name": "SiteContent",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique content key"
+    },
+    "hero_title": {
+      "type": "string"
+    },
+    "hero_subtitle": {
+      "type": "string"
+    },
+    "homepage_text": {
+      "type": "string"
+    },
+    "about_text": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key"
+  ]
+}

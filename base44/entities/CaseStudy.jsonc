@@ -1,0 +1,35 @@
+{
+  "name": "CaseStudy",
+  "type": "object",
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Reference to Project entity"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "project_category": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "metric": {
+      "type": "string",
+      "description": "e.g. +35% revenue"
+    },
+    "description": {
+      "type": "string"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "project_name"
+  ]
+}

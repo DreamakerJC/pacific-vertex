@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,60 +6,34 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 20 14% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 20 14% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 20 14% 12%;
-    --primary: 24 9% 18%;
-    --primary-foreground: 36 33% 97%;
-    --secondary: 32 20% 92%;
-    --secondary-foreground: 20 14% 12%;
-    --muted: 32 15% 93%;
-    --muted-foreground: 20 8% 46%;
-    --accent: 28 60% 52%;
+    --background: 216 100% 8%;
+    --foreground: 210 40% 96%;
+    --card: 216 80% 11%;
+    --card-foreground: 210 40% 96%;
+    --popover: 216 80% 11%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 210 40% 96%;
+    --primary-foreground: 216 100% 8%;
+    --secondary: 216 60% 15%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 216 50% 14%;
+    --muted-foreground: 210 20% 55%;
+    --accent: 160 100% 38%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --border: 30 15% 88%;
-    --input: 30 15% 88%;
-    --ring: 24 9% 18%;
+    --border: 216 40% 18%;
+    --input: 216 40% 18%;
+    --ring: 44 84% 53%;
     --radius: 0.75rem;
 
-    /* Custom brand colors */
-    --warm-100: 36 60% 96%;
-    --warm-200: 32 45% 88%;
-    --warm-300: 28 40% 78%;
-    --warm-400: 26 50% 62%;
-    --warm-500: 24 55% 48%;
-    --warm-600: 22 58% 38%;
-    --gold: 38 90% 54%;
-    --gold-light: 40 95% 72%;
-    --sage: 145 18% 52%;
-    --sage-light: 145 20% 88%;
-  }
-
-  .dark {
-    --background: 20 14% 8%;
-    --foreground: 36 20% 94%;
-    --card: 20 12% 11%;
-    --card-foreground: 36 20% 94%;
-    --popover: 20 12% 11%;
-    --popover-foreground: 36 20% 94%;
-    --primary: 36 33% 92%;
-    --primary-foreground: 20 14% 8%;
-    --secondary: 20 10% 18%;
-    --secondary-foreground: 36 20% 94%;
-    --muted: 20 10% 16%;
-    --muted-foreground: 20 8% 58%;
-    --accent: 28 55% 48%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62% 38%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 20 10% 20%;
-    --input: 20 10% 20%;
-    --ring: 36 20% 82%;
+    /* Brand colors */
+    --navy: 216 100% 8%;
+    --navy-mid: 216 80% 12%;
+    --navy-light: 216 60% 18%;
+    --green-brand: 160 100% 38%;
+    --gold-brand: 44 84% 53%;
+    --gold-light: 44 90% 68%;
   }
 }
 
@@ -69,10 +43,63 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    background-color: #0A2540;
   }
 
-  h1, h2, h3 {
-    @apply font-playfair;
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: #D4AF37;
+  }
+  .text-green-brand {
+    color: #00C48C;
+  }
+  .bg-gold {
+    background-color: #D4AF37;
+  }
+  .bg-green-brand {
+    background-color: #00C48C;
+  }
+  .border-gold {
+    border-color: #D4AF37;
+  }
+  .border-green-brand {
+    border-color: #00C48C;
+  }
+  .glow-gold {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
+  }
+  .glow-green {
+    box-shadow: 0 0 30px rgba(0, 196, 140, 0.25);
+  }
+  .glow-blue {
+    box-shadow: 0 0 40px rgba(10, 37, 64, 0.8);
+  }
+  .gradient-text-gold {
+    background: linear-gradient(135deg, #D4AF37, #F0D060);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gradient-text-green {
+    background: linear-gradient(135deg, #00C48C, #00E0A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass {
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .glass-hover:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(212, 175, 55, 0.3);
   }
 }

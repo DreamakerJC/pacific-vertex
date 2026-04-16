@@ -6,46 +6,49 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
-// Page imports
-import Layout from '@/components/Layout';
-import Recipes from '@/pages/Recipes';
-import MealPlanner from '@/pages/MealPlanner';
-import ShoppingList from '@/pages/ShoppingList';
-import AISuggest from '@/pages/AISuggest';
+// Layout
+import SiteLayout from '@/components/SiteLayout';
+
+// Pages
+import Home from '@/pages/Home';
+import About from '@/pages/About';
+import Projects from '@/pages/Projects';
+import ProjectDetail from '@/pages/ProjectDetail';
+import CaseStudies from '@/pages/CaseStudies';
+import Contact from '@/pages/Contact';
+import AdminPanel from '@/pages/AdminPanel';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-background">
-        <div className="w-8 h-8 border-4 border-muted border-t-primary rounded-full animate-spin"></div>
+      <div className="fixed inset-0 flex items-center justify-center bg-navy">
+        <div className="w-8 h-8 border-2 border-white/10 border-t-yellow-400 rounded-full animate-spin" />
       </div>
     );
   }
 
   if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      navigateToLogin();
-      return null;
-    }
+    if (authError.type === 'user_not_registered') return <UserNotRegisteredError />;
+    if (authError.type === 'auth_required') { navigateToLogin(); return null; }
   }
 
   return (
     <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Recipes />} />
-        <Route path="/meal-planner" element={<MealPlanner />} />
-        <Route path="/shopping-list" element={<ShoppingList />} />
-        <Route path="/ai-suggest" element={<AISuggest />} />
+      <Route element={<SiteLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetail />} />
+        <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
-
 
 function App() {
   return (
@@ -57,7 +60,7 @@ function App() {
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
