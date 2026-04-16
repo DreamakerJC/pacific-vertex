@@ -1,0 +1,40 @@
+{
+  "name": "MealPlan",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the meal plan"
+    },
+    "meal_type": {
+      "type": "string",
+      "enum": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "description": "Type of meal"
+    },
+    "recipe_id": {
+      "type": "string",
+      "description": "Reference to Recipe entity"
+    },
+    "recipe_title": {
+      "type": "string",
+      "description": "Cached recipe title"
+    },
+    "servings": {
+      "type": "number",
+      "default": 1
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "meal_type"
+  ]
+}

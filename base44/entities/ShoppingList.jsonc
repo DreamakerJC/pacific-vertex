@@ -1,0 +1,43 @@
+{
+  "name": "ShoppingList",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Item name"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "produce",
+        "dairy",
+        "meat",
+        "seafood",
+        "bakery",
+        "pantry",
+        "frozen",
+        "beverages",
+        "spices",
+        "other"
+      ],
+      "default": "other"
+    },
+    "is_checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "recipe_source": {
+      "type": "string",
+      "description": "Which recipe this came from"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
